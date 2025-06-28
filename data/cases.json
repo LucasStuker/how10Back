@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "João Silva",
+    "age": 25,
+    "city": "São Paulo",
+    "description": "Visto no parque"
+  },
+  {
+    "id": 2,
+    "name": "Cachorro Rex",
+    "age": 5,
+    "city": "Rio de Janeiro",
+    "description": "Fugiu de casa durante a noite."
+  },
+  {
+    "id": 4,
+    "name": "João Silva",
+    "age": 30,
+    "city": "São Paulo",
+    "description": "Visto no Parque Ibirapuera"
+  }
+]
