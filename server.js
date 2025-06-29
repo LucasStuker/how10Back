@@ -5,7 +5,7 @@ const cloudinary = require('cloudinary').v2;
 const caseRoutes = require("./routes/caseRoutes");  // Usando a rota de casos
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // Configuração do Cloudinary
 cloudinary.config({
