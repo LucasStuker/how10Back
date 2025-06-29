@@ -3,6 +3,7 @@
 const express = require('express');
 const cloudinary = require('cloudinary').v2;
 const caseRoutes = require("./routes/caseRoutes");
+const cors = require('cors')
 
 console.log("--> Arquivo server.js iniciado.");
 
@@ -31,6 +32,6 @@ app.use('/api', caseRoutes);
 console.log("--> Rotas configuradas.");
 
 console.log("--> Configurações carregadas. Tentando iniciar o servidor...");
-app.listen(port, '0.0.0.0', () => { // Adicionado '0.0.0.0' por segurança
+app.listen(port, '0.0.0.0', () => { 
   console.log(`--> SERVIDOR INICIADO COM SUCESSO! Escutando na porta ${port}`);
 });
