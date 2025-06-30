@@ -1,4 +1,3 @@
-// server.js - Versão com mais logs e health check
 
 const express = require('express');
 const cloudinary = require('cloudinary').v2;
