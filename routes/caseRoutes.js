@@ -23,26 +23,34 @@ const upload = multer({ storage: storage });
 router.get('/cases', async (req, res) => {
   try {
     const { search } = req.query;
-    
+
+    // LOG 1: Vamos ver o que o backend está recebendo
+    console.log(`--> Rota GET /cases acionada. Termo da busca recebido: ${search}`);
+
     let sql = "SELECT * FROM cases";
     const params = [];
 
-    if(search) {
+    if (search) {
       sql += " WHERE name LIKE ? OR city LIKE ?";
-      params.push(`%${search}%`)
-      params.push(`%${search}%`)
+      params.push(`%${search}%`);
+      params.push(`%${search}%`);
     }
 
-    sql += " ORDER BY created_at DESC"; 
+    sql += " ORDER BY id DESC";
 
-    const [cases] = await dbPool.query(sql,params)
+    // LOG 2: Vamos ver a consulta final que está sendo executada
+    console.log(`--> Executando SQL: ${sql}`);
+    console.log(`--> Com os parâmetros:`, params);
+
+    const [cases] = await dbPool.query(sql, params);
     res.json(cases);
-
+    
   } catch (error) {
-    console.error("Erro ao buscar casos:", error);
+    console.error("--> ERRO ao buscar casos:", error);
     res.status(500).json({ message: 'Erro ao buscar casos no servidor.' });
   }
 });
+
 
 // Rota para criar um novo caso (salvando no banco de dados)
 router.post('/cases', upload.single('photo'), async (req, res) => {
