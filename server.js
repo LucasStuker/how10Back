@@ -10,12 +10,7 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
-const corsOptions = {
-  origin: 'https://encontrar-app.onrender.com', 
-  optionsSuccessStatus: 200 
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
